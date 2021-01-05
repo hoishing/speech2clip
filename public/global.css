@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
 :root {
   --txt-color: #9a9a9a;
   --bg-color: #333333;
-  --font: 'Source Code Pro', 'LiHei Pro', 'Microsoft JhengHei', monospace;
+  /* --font: 'Source Code Pro', 'LiHei Pro', 'Microsoft JhengHei', monospace; */
+  --font: Consolas, monospace;
+  --font-size: 1.1em;
 }
 body {
   background-color: var(--bg-color);
   text-align: center;
   font-family: var(--font);
+  font-size: var(--font-size);
 }

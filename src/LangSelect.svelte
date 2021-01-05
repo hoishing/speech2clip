@@ -9,9 +9,15 @@
     background-color: #333333;
     color: rgb(172, 172, 172);
     border: 0;
-    font-family: serif;
-    appearance: none;
   }
+
+  select {
+    font-family: inherit;
+    appearance: none;
+    padding: 0 10px;
+    line-height: 2em;
+  }
+
   div {
     display: flex;
     justify-content: space-between;

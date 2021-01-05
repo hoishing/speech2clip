@@ -1,5 +1,5 @@
 <script>
-  export let txt = 'listening...'
+  export let txt = 'listening...中文'
 </script>
 
 <style>
