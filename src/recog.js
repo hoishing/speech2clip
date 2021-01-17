@@ -1,28 +1,40 @@
-import './langs'
+import langOpt from './langs'
+import Bowser from 'bowser'
 
-// if (!('webkitSpeechRecognition' in window)) {
-//   textBox.innerText = 'API not supported, use Chrome 25+'
-//   throw new Error()
-// }
+export let errMsg = ''
+export let txt = ''
+
+const browser = Bowser.getParser(window.navigator.userAgent)
+const isChrome = browser.satisfies({
+  chrome: '>=25',
+})
+
+if (!('webkitSpeechRecognition' in window && isChrome)) {
+  errMsg = 'only support Chrome desktop version 25+'
+  return //early return??
+} else {
+  let recog = new webkitSpeechRecognition()
+  recog.continuous = true
+  recog.interimResults = true
+  // recog.lang = 'yue-Hant-HK'
+}
+
+export function recognize(lang) {
+  console.log(`recognizing ${lang}`)
+  if (recognizing) {
+    recog.stop()
+  } else {
+    txt = ''
+    recog.start()
+  }
+}
 
 // textBox = document.getElementById('textBox')
 // toggleBut = document.getElementById('toggleBut')
 // toggleBut.onclick = recognize
 // recognizing = false
 
-// recog = new webkitSpeechRecognition()
-// recog.continuous = true
-// recog.interimResults = true
-// recog.lang = 'yue-Hant-HK'
-
-// function recognize() {
-//   if (recognizing) {
-//     recog.stop()
-//   } else {
-//     textBox.innerHTML = ''
-//     recog.start()
-//   }
-// }
+function recognize() {}
 
 // recog.onstart = () => {
 //   textBox.innerHTML = ''

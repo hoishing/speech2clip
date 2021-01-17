@@ -1,3 +1,10 @@
+<script>
+  export let listening
+  $: title = listening ? 'stop' : 'start'
+</script>
+
+<button on:click>{title}</button>
+
 <style>
   button {
     min-width: 150px;
@@ -14,5 +21,3 @@
     background-color: #337ab7;
   }
 </style>
-
-<button>start</button>

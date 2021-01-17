@@ -2,7 +2,25 @@
   import Button from './Button.svelte'
   import Textbox from './Textbox.svelte'
   import LangSelect from './LangSelect.svelte'
+  import { errMsg, recognize } from './recog.js'
+
+  let listening = false
+  $: recognize(listening)
+
+  const toggle = () => (listening = !listening)
+
+  const shortcut = e => {
+    if (e.keyCode == 32) toggle()
+  }
 </script>
+
+<svelte:body on:keypress={shortcut} />
+
+<LangSelect />
+<Textbox {listening} />
+<Button {listening} on:click={toggle} />
+
+<footer>toggle start/stop: space bar</footer>
 
 <style>
   footer {
@@ -15,9 +33,3 @@
     margin-bottom: 1em;
   }
 </style>
-
-<LangSelect />
-<Textbox />
-<Button />
-
-<footer>toggle start/stop: space bar</footer>

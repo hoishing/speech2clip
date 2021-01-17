@@ -1,6 +1,9 @@
 <script>
-  export let txt = 'listening...中文'
+  export let listening
+  $: txt = listening ? '' : 'press spacebar to start'
 </script>
+
+<p>{txt}</p>
 
 <style>
   p {
@@ -11,5 +14,3 @@
     color: var(--txt-color);
   }
 </style>
-
-<p>{txt}</p>
